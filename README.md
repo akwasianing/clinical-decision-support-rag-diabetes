@@ -38,7 +38,7 @@ The project began with a baseline implementation using **Qwen2.5-3B-Instruct** a
 
 ```
 notebooks/
-    Jupyter notebooks used for development and experimentation
+    Jupyter notebook used for development and experimentation
 
 ```
 
