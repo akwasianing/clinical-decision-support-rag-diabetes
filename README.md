@@ -29,17 +29,74 @@ The project began with a baseline implementation using **Qwen2.5-3B-Instruct** a
 - Hugging Face Transformers
 - Sentence Transformers
 - ChromaDB
+- LangChain
 - Qwen2.5-3B-Instruct
 - Qwen3-14B
 - Cross-Encoder (MS MARCO MiniLM-L6-v2)
 
 ---
 
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
+cd clinical-decision-support-rag-diabetes
+```
+
+Install the required packages:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+---
+
+## Usage
+
+1. Obtain the **American Diabetes Association Standards of Care in Diabetes—2026** guideline PDF files from the official ADA source.
+
+2. Place the PDF files in a local directory and update the document path in the notebook if necessary.
+
+3. Launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+4. Open the notebook located in the **notebooks/** directory.
+
+5. Run the notebook cells sequentially to:
+
+- Load and preprocess the ADA Standards of Care in Diabetes—2026 guideline documents.
+- Generate document embeddings and build the ChromaDB vector database.
+- Retrieve relevant guideline excerpts.
+- Generate responses using the Qwen language models.
+- Evaluate retrieval performance, citation quality, and answer quality.
+
+> **Note:** The ADA guideline documents are **not included** in this repository because they are copyrighted by the American Diabetes Association.
+
+---
+
 ## Repository Structure
 
 ```text
-notebooks/
-    Jupyter notebook used for development and experimentation
+clinical-decision-support-rag-diabetes/
+│
+├── notebooks/
+│   Jupyter notebook containing the complete project workflow
+│
+├── outputs/
+│   Evaluation results and generated outputs
+│
+├── requirements.txt
+│   Project dependencies
+│
+├── README.md
+│   Project documentation
+│
+└── .gitignore
 ```
 
 ---
@@ -67,6 +124,18 @@ notebooks/
 - Improved Mean Precision@3 from **0.800** to **0.844** while maintaining a Hit Rate@3 of **1.000**.
 - Achieved **100% citation accuracy** with **no hallucinated citations** under the evaluation metric for both systems.
 - Completed the evaluation and assessment of the final RAG system.
+
+---
+
+## Future Work
+
+Potential improvements to the system include:
+
+- Integration with electronic health record (EHR) systems.
+- Expansion to additional clinical practice guidelines.
+- Evaluation using larger and more diverse clinical question datasets.
+- Deployment as a web-based clinical decision support application.
+- Investigation of alternative retrieval and re-ranking methods to further improve response quality.
 
 ---
 
