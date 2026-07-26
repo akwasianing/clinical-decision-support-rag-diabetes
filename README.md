@@ -4,9 +4,9 @@
 
 This project develops a Retrieval-Augmented Generation (RAG) clinical decision support assistant that answers Type 2 Diabetes management questions using the **American Diabetes Association (ADA) Standards of Care in Diabetes—2026** guidelines.
 
-The project began with a baseline implementation using **Qwen2.5-3B-Instruct** and was later improved by upgrading to **Qwen3-14B** and integrating **Cross-Encoder (MS MARCO MiniLM-L6-v2)** re-ranking to improve retrieval quality before answer generation. The system retrieves relevant guideline excerpts from a ChromaDB vector database and generates grounded responses with source citations. The final system was evaluated using quantitative retrieval metrics, citation evaluation, manual assessment of answer quality, and qualitative analysis.
+The project began with a baseline implementation using **Qwen2.5-3B-Instruct** and was later improved by upgrading to **Qwen3-14B** and integrating **Cross-Encoder (MS MARCO MiniLM-L6-v2)** re-ranking to improve retrieval quality before answer generation.
 
----
+The system retrieves relevant guideline excerpts from a ChromaDB vector database and generates grounded responses with source citations. The final system was evaluated using quantitative retrieval metrics, citation evaluation, manual assessment of answer quality, and qualitative analysis.
 
 ## Features
 
@@ -14,130 +14,77 @@ The project began with a baseline implementation using **Qwen2.5-3B-Instruct** a
 - Knowledge base built from the ADA Standards of Care in Diabetes—2026
 - Semantic retrieval using Sentence Transformer embeddings
 - ChromaDB vector database
-- Qwen2.5-3B-Instruct (baseline language model)
-- Qwen3-14B (improved language model)
+- Qwen2.5-3B-Instruct baseline model
+- Qwen3-14B improved language model
 - Cross-Encoder (MS MARCO MiniLM-L6-v2) re-ranking
 - Source-aware retrieval
 - Interactive clinical question-answering chatbot
-- Quantitative and qualitative evaluation framework
-
----
+- Grounded answers with source citations
 
 ## Technologies Used
 
 - Python
+- Jupyter Notebook
+- Google Colab
 - Hugging Face Transformers
 - Sentence Transformers
 - ChromaDB
 - LangChain
-- Qwen2.5-3B-Instruct
-- Qwen3-14B
+- Qwen Models
 - Cross-Encoder (MS MARCO MiniLM-L6-v2)
 
----
-
 ## Installation
-
-Clone the repository:
 
 ```bash
 git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
 cd clinical-decision-support-rag-diabetes
-```
-
-Install the required packages:
-
-```bash
 python -m pip install -r requirements.txt
 ```
 
----
+## Data Files
+
+The ADA guideline PDF documents are **not included** in this repository because they are copyrighted by the American Diabetes Association.
+
+Place the required ADA guideline PDF files in the repository's `data/` folder before running the notebook.
 
 ## Usage
 
-1. Obtain the **American Diabetes Association Standards of Care in Diabetes—2026** guideline PDF files from the official ADA source.
-
-2. Place the PDF files in a local directory and update the document path in the notebook if necessary.
-
-3. Launch Jupyter Notebook:
+### Local
 
 ```bash
 jupyter notebook
 ```
 
-4. Open the notebook located in the **notebooks/** directory.
+Open the notebook in the `notebooks/` folder and run all cells.
 
-5. Run the notebook cells sequentially to:
+### Google Colab
 
-- Load and preprocess the ADA Standards of Care in Diabetes—2026 guideline documents.
-- Generate document embeddings and build the ChromaDB vector database.
-- Retrieve relevant guideline excerpts.
-- Generate responses using the Qwen language models.
-- Evaluate retrieval performance, citation quality, and answer quality.
-
-> **Note:** The ADA guideline documents are **not included** in this repository because they are copyrighted by the American Diabetes Association.
-
----
-
-## Repository Structure
-
-```text
-clinical-decision-support-rag-diabetes/
-│
-├── notebooks/
-│   Jupyter notebook containing the complete project workflow
-│
-├── outputs/
-│   Evaluation results and generated outputs
-│
-├── requirements.txt
-│   Project dependencies
-│
-├── README.md
-│   Project documentation
-│
-└── .gitignore
+```python
+!git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
+%cd /content/clinical-decision-support-rag-diabetes
+%pip install -q -r requirements.txt
 ```
 
----
+Upload the ADA PDFs into the `data/` folder and run the notebook from top to bottom.
 
-## Project Progress
+## Evaluation
 
-- Developed the project proposal.
-- Selected the ADA Standards of Care in Diabetes—2026 as the knowledge source.
-- Processed the guideline documents.
-- Split documents into text chunks.
-- Generated document embeddings.
-- Built the ChromaDB vector database.
-- Developed the baseline RAG pipeline.
-- Integrated Qwen2.5-3B-Instruct.
-- Built an interactive chatbot for clinical question answering.
-- Upgraded the language model to Qwen3-14B.
-- Improved prompt design and source-aware retrieval.
-- Added Cross-Encoder (MS MARCO MiniLM-L6-v2) re-ranking to improve document retrieval.
-- Developed a structured evaluation dataset consisting of 15 Type 2 Diabetes management questions covering diagnosis, glycemic targets, lifestyle management, medication selection, and cardiovascular risk.
-- Compared the baseline retrieval pipeline with the Cross-Encoder re-ranked pipeline.
-- Evaluated retrieval performance using Mean Precision@3 and Hit Rate@3.
-- Evaluated citation accuracy and hallucinated citation rate for both systems.
-- Performed manual evaluation of answer relevance, faithfulness, and clarity.
-- Conducted a qualitative analysis to identify the strengths and limitations of the final RAG system.
-- Improved Mean Precision@3 from **0.800** to **0.844** while maintaining a Hit Rate@3 of **1.000**.
-- Achieved **100% citation accuracy** with **no hallucinated citations** under the evaluation metric for both systems.
-- Completed the evaluation and assessment of the final RAG system.
+- Mean Precision@3
+- Hit Rate@3
+- Citation Accuracy
+- Hallucinated Citation Rate
+- Manual evaluation of relevance, faithfulness, and clarity
 
----
+## Results
 
-## Future Work
+- Mean Precision@3 improved from **0.800** to **0.844**
+- Hit Rate@3 = **1.000**
+- **100% citation accuracy**
+- **No hallucinated citations**
 
-Potential improvements to the system include:
+## Disclaimer
 
-- Integration with electronic health record (EHR) systems.
-- Expansion to additional clinical practice guidelines.
-- Evaluation using larger and more diverse clinical question datasets.
-- Deployment as a web-based clinical decision support application.
-- Investigation of alternative retrieval and re-ranking methods to further improve response quality.
-
----
+This project is intended for educational and research purposes only and should not be used as a substitute for professional medical advice.
 
 ## Author
 
