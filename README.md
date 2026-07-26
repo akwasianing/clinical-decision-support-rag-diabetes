@@ -38,14 +38,13 @@ The system retrieves relevant guideline excerpts from a ChromaDB vector database
 ```bash
 git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
 cd clinical-decision-support-rag-diabetes
-python -m pip install -r requirements.txt
 ```
 
 ## Data Files
 
 The ADA guideline PDF documents are **not included** in this repository because they are copyrighted by the American Diabetes Association.
 
-Place the required ADA guideline PDF files in the repository's `data/` folder before running the notebook.
+When running the notebook, you will be prompted to upload the required ADA guideline PDF files before they are processed.
 
 ## Usage
 
@@ -55,19 +54,15 @@ Place the required ADA guideline PDF files in the repository's `data/` folder be
 jupyter notebook
 ```
 
-Open the notebook in the `notebooks/` folder and run all cells.
+Open the notebook and run all cells. When prompted, upload the required ADA guideline PDF files.
 
 ### Google Colab
 
-```python
-!git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
-%cd /content/clinical-decision-support-rag-diabetes
-%pip install -q -r requirements.txt
-```
-
-Upload the ADA PDFs into the `data/` folder and run the notebook from top to bottom.
+Open the notebook in Google Colab and run all cells. When prompted, upload the required ADA guideline PDF files.
 
 ## Evaluation
+
+The system was evaluated using the following metrics:
 
 - Mean Precision@3
 - Hit Rate@3
@@ -77,14 +72,16 @@ Upload the ADA PDFs into the `data/` folder and run the notebook from top to bot
 
 ## Results
 
+The final system achieved the following results:
+
 - Mean Precision@3 improved from **0.800** to **0.844**
-- Hit Rate@3 = **1.000**
-- **100% citation accuracy**
-- **No hallucinated citations**
+- Hit Rate@3: **1.000**
+- Citation Accuracy: **100%**
+- Hallucinated Citation Rate: **0%**
 
 ## Disclaimer
 
-This project is intended for educational and research purposes only and should not be used as a substitute for professional medical advice.
+This project was developed for educational and research purposes only. It is **not** intended to replace professional medical advice, diagnosis, or treatment.
 
 ## Author
 
