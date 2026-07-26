@@ -39,6 +39,11 @@ The system retrieves relevant guideline excerpts from a ChromaDB vector database
 git clone https://github.com/akwasianing/clinical-decision-support-rag-diabetes.git
 cd clinical-decision-support-rag-diabetes
 ```
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Data Files
 
