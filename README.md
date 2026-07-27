@@ -8,6 +8,16 @@ The project began with a baseline implementation using **Qwen2.5-3B-Instruct** a
 
 The system retrieves relevant guideline passages from a ChromaDB vector database and generates grounded responses with source citations. The final system was evaluated using quantitative retrieval metrics, citation evaluation, manual assessment of answer quality, and qualitative analysis.
 
+## System Architecture
+
+The overall workflow of the RAG system is shown below.
+
+<p align="center">
+  <img src="RAG_System_Architecture.png"
+       alt="RAG System Architecture"
+       width="700">
+</p>
+
 ---
 
 ## Features
